@@ -24,7 +24,8 @@
     <div class="input_card"  @touchstart="touchstart" @touchend="touchend" :class="{'top_location':!isBottom}" >
       测试ing
       毛玻璃效果
-
+      <div>{{$lang('userName')}}</div>
+      <div>{{$lang('message')}}</div>----{{$t('status')}}
     </div>
     <div class="input_card1" ref="card"  @touchstart="touchstart" @touchend="touchend" :class="{'top_location':!isBottom}"></div>
   </div>
@@ -33,6 +34,7 @@
 <script>
   import remoteLoad from '@/utils/remoteLoad.js'
   import { MapKey, MapCityName } from '@/config/config'
+  import testData from  '@/mock.js'
   import dialog from "../utils/dialog";
   export default {
     props: ['lat', 'lng'],
@@ -44,7 +46,8 @@
         AMapUI: null,
         AMap: null,
         startY:0,
-        isBottom:true
+        isBottom:true,
+        lang: 'zh-CN'
       }
     },
     watch: {
@@ -58,11 +61,36 @@
 
     },
     methods: {
+      setLang(lang){
+        this.$common.setLang(lang);
+        this.$forceUpdate();
+      },
       testDialog(){
-        let dialog = this.$common.dialog1, data={name:''};
+        if (this.lang === 'zh-CN') {
+          this.lang = 'en-US'
+          this.$i18n.locale = this.lang
+        } else {
+          this.lang = 'zh-CN'
+          this.$i18n.locale = this.lang
+        }
+        console.log(211212,testData)
+        //return
+        //this.setLang('zh-cn');
+
+        //this.setLang('en-us');
+        // if (this.lang === 'zh-CN') {
+        //   this.lang = 'en-US'
+        //   this.$i18n.locale = this.lang
+        // } else {
+        //   this.lang = 'zh-CN'
+        //   this.$i18n.locale = this.lang
+        // }
+        //return;
+        let dialog = this.$common.dialog1, data={name:this.$lang('status')};
+        alert(data.name)
         // dialog.loading();
-          dialog.toast('xww');
-         return
+         // dialog.toast('xww');
+         //return
         dialog.open({
           title : '编辑任务名称',
           content : '<div>任务名称：</div>' +
@@ -115,7 +143,7 @@
       // 实例化地图
       initMap () {
           let dialog = this.$common.dialog1, data={name:''};
-          dialog.loading();
+          //dialog.loading();
         // 加载PositionPicker，loadUI的路径参数为模块名中 'ui/' 之后的部分
         let AMapUI = this.AMapUI = window.AMapUI
         let AMap = this.AMap = window.AMap
@@ -123,7 +151,8 @@
             dialog.close();
           let mapConfig = {
             zoom: 16,
-            cityName: MapCityName
+            cityName: MapCityName,
+            lang: "en",
           }
           if (this.lat && this.lng) {
             mapConfig.center = [this.lng, this.lat]
@@ -137,7 +166,8 @@
               citylimit: true,
               city: MapCityName,
               map: map,
-              panel: 'js-result'
+              panel: 'js-result',
+
             })
           })
           // 启用工具条
@@ -148,7 +178,7 @@
           // })
           // 创建地图拖拽
           let positionPicker = new PositionPicker({
-            mode: 'dragMap', // 设定为拖拽地图模式，可选'dragMap'、'dragMarker'，默认为'dragMap'
+            mode: 'dragMarker', // 设定为拖拽地图模式，可选'dragMap'、'dragMarker'，默认为'dragMap'
             map: map // 依赖地图对象
           })
           // 拖拽完成发送自定义 drag 事件
@@ -157,7 +187,8 @@
             if (!this.dragStatus) {
               this.dragStatus = true
             } else {
-              this.$emit('drag', positionResult)
+              this.$emit('drag', positionResult);
+              console.log(positionResult)
             }
           })
           // 启动拖放
@@ -172,7 +203,7 @@
         this.initMap()
         // 未载入高德地图API，则先载入API再初始化
       } else {
-        await remoteLoad(`http://webapi.amap.com/maps?v=1.3&key=${MapKey}`)
+        await remoteLoad(`http://webapi.amap.com/maps?v=1.3&key=${MapKey}&language=en`)
         await remoteLoad('http://webapi.amap.com/ui/1.0/main.js')
         this.initMap()
       }

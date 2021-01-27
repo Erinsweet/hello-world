@@ -21,13 +21,16 @@
 
 <script>
   import mapDrag from './components/mapDrag'
+  import loading from './components/testdialog'
   export default {
     name: 'app',
     components: {
-      mapDrag
+      mapDrag,
+      loading
     },
     data () {
       return {
+        isLoading: true,
         dragData: {
           lng: null,
           lat: null,
@@ -44,6 +47,8 @@
         }
       }
     },
+    mounted(){
+    },
     methods: {
       dragMap (data) {
         this.dragData = {
@@ -54,7 +59,7 @@
           nearestRoad: data.nearestRoad,
           nearestPOI: data.nearestPOI
         }
-      }
+      },
     },
     created() {
       this.dialog.nextTick = this.$nextTick;
@@ -69,5 +74,4 @@
   @import "assets/css/var";
   @import "assets/css/style";
   body{ margin: 0; }
-
 </style>
