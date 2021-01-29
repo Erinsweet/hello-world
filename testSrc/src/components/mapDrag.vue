@@ -19,12 +19,13 @@
       </div>
 
     </div>
-    <div  @click="testDialog">测试dialog</div>
+
 
     <div class="input_card"  @touchstart="touchstart" @touchend="touchend" :class="{'top_location':!isBottom}" >
       测试ing
       毛玻璃效果
-      <div>{{$lang('userName')}}</div>
+      <div  @click="testDialog">测试dialog</div>
+      <div>{{$lang('userName')}}-2</div>
       <div>{{$lang('message')}}</div>----{{$t('status')}}
     </div>
     <div class="input_card1" ref="card"  @touchstart="touchstart" @touchend="touchend" :class="{'top_location':!isBottom}"></div>
@@ -36,6 +37,7 @@
   import { MapKey, MapCityName } from '@/config/config'
   import testData from  '@/mock.js'
   import dialog from "../utils/dialog";
+
   export default {
     props: ['lat', 'lng'],
     data () {
@@ -73,32 +75,52 @@
           this.lang = 'zh-CN'
           this.$i18n.locale = this.lang
         }
-        console.log(211212,testData)
+
         //return
         //this.setLang('zh-cn');
-
-        //this.setLang('en-us');
-        // if (this.lang === 'zh-CN') {
-        //   this.lang = 'en-US'
-        //   this.$i18n.locale = this.lang
-        // } else {
-        //   this.lang = 'zh-CN'
-        //   this.$i18n.locale = this.lang
-        // }
-        //return;
-        let dialog = this.$common.dialog1, data={name:this.$lang('status')};
-        alert(data.name)
+        let dialog = this.$common.dialog1, data={name:this.$lang('status')},app=this;
         // dialog.loading();
          // dialog.toast('xww');
          //return
         dialog.open({
-          title : '编辑任务名称',
+          title : '',
           content : '<div>任务名称：</div>' +
                   '<textarea style="width:400px; height: 100px; resize: both;" placeholder="请在此输入任务名称" v-model="name">' +
                   '</textarea>',
           data : data,
           // type : "save",
 
+          btns : [
+            {
+              value : '取消',
+              action(obj){
+               // dialog.close();
+                app.test2();
+              }
+            },
+            {
+              value : '确认',
+              primary : true,
+              action(obj){
+                dialog.close();
+              }
+            }
+          ]
+        })
+      },
+      test2(){
+        let dialog = this.$common.dialog1,app=this;
+        let imgSrc = require('../assets/img/map.png');
+        dialog.open({
+          type:"out",
+          with:'400px',
+          title : '',
+          hideCloseBtn:true,
+          content : '<div class="testImg"><img :src="imgSrc"><div class="bt">223</div></div>',
+          data :{
+            imgSrc:imgSrc
+            // imgSrc: resolve=>require(['@/assets/img/map.png'],resolve)
+          },
           btns : [
             {
               value : '取消',
@@ -117,11 +139,13 @@
         })
       },
       touchstart(e) {
+        return
         console.log(1,e);
         e.preventDefault();//阻止默认事件（长按的时候出现复制）
         this.startY = e.touches[0].pageY;
       },
       touchend(e) {
+        return;
         e.preventDefault();
         let endY = e.changedTouches[0].pageY;
         let dy = endY - this.startY;
@@ -170,6 +194,7 @@
 
             })
           })
+
           // 启用工具条
           // AMap.plugin(['AMap.ToolBar'], function () {
           //   map.addControl(new AMap.ToolBar({
@@ -192,7 +217,9 @@
             }
           })
           // 启动拖放
-          positionPicker.start()
+          positionPicker.start();
+
+
         })
       }
     },
@@ -210,7 +237,20 @@
     }
   }
 </script>
-
+<style>
+  .testImg{
+    background-color:rebeccapurple;
+    width: 300px;
+    height: 200px;
+    .btns .btnBorder{
+      color: #67c23a;
+    }
+    .bt{
+      position: absolute;
+      bottom: 0;
+    }
+  }
+</style>
 <style lang="less" scoped>
 @import "../assets/css/var.less";
   .m-map{

@@ -20,14 +20,28 @@
     pointer-events: auto;
     @_radius: 0.03rem;
     position: absolute;
-    width: auto;
-    height: auto;
+    //width: auto;
+    //height: auto;
     left: 50%;
     top: 50%;
     background: #FFF;
     .translate();
     box-shadow: 0 0 .2rem 0 rgba(0, 0, 0, .2);
     border-radius: @_radius;
+    //&.out{
+    //  background-color: #37a2da !important;
+    //  width: 6rem !important;
+    //}
+    .icon-close {
+      position: absolute;
+      top: 0;
+      right: @vSpace;
+      cursor: pointer;
+      &:after {
+        content: '关闭';
+        color: #2d2d2b;
+      }
+    }
     >.title {
       @_fontSize: .18rem;
       font-size: @_fontSize;

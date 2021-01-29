@@ -6,6 +6,7 @@
     <div id="dialog" v-if="dialog.index > 0">
       <div class="mask" :style="{'z-index':dialog.index}" v-if="!dialog.isToast"></div>
       <div v-for="item in dialog.data" :class="['dialog', item.type, item.class||''].join(' ')" :style="{'z-index':item.index}">
+        <i class="icon-close"  v-if="!item.hideCloseBtn" @click="item.parent.cancelAndClose()"></i>
         <div class="title" v-if="item.title" >
           <span v-text="item.title"></span>
           <i class="icon-close"  v-if="!item.hideCloseBtn" @click="item.parent.cancelAndClose()"></i>
@@ -73,5 +74,6 @@
 <style lang="less" rel="stylesheet/less">
   @import "assets/css/var";
   @import "assets/css/style";
+  @import "assets/css/dialog";
   body{ margin: 0; }
 </style>
