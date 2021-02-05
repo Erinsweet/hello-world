@@ -1,27 +1,27 @@
-dialog.open({
-    width : null,
-    height : null,
-    content : "<com></com>",
-    data : {
+// <img :src="item.image ? require(`../../assets/image/${item.image}`) : ‘‘" alt="image"/>
+//https://blog.csdn.net/a843334549/article/details/104669836
 
-        update(){
+// ConvertDegreesToRadians(degrees){
+//     return degrees * Math.PI / 180;
+// },
 
-        }
-    },
-    components : {
-        com
-    },
-    btns : [
-        {
-            value : "取消",
-            action(obj){
-                obj.close();
-            }
-        }
-    ]
-});
+// ConvertRadiansToDegrees(radian){
+//     return radian * 180.0 / Math.PI;
+// },
 
+// HaverSin(theta){
+//     let v = Math.sin(theta / 2);
+//     return v*v
+// },
 
-
-
-<svg t="1611792796615" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1142" width="200" height="200"><path d="M872.18 94.08L95.95 545.34c-27.56 16.01-36.93 51.33-20.92 78.89a57.713 57.713 0 0 0 30.91 25.51l294.68 102.61v168.81c-0.81 20.38 15.06 37.56 35.45 38.37 20.38 0.81 37.56-15.06 38.37-35.45 0.04-0.97 0.04-1.95 0-2.92V778.15l313.38 109.54c30.09 10.53 63.01-5.33 73.54-35.41a57.7 57.7 0 0 0 2.7-11.22l94.3-689.26c4.31-31.58-17.8-60.68-49.38-64.99a57.746 57.746 0 0 0-36.8 7.27z m-93.37 139.84L424.62 682.17 164.45 591.8l614.36-357.88zM498.38 708.03l374.56-474.11-79.35 575.63-295.21-101.52z" p-id="1143" fill="#1296db"></path></svg>
+// getDistance(latitude,longitude){
+//     let app = this;
+//     let lat1 = app.ConvertDegreesToRadians(app.location.latitude),
+//         lon1 = app.ConvertDegreesToRadians(app.location.longitude),
+//         lat2 = app.ConvertDegreesToRadians(latitude),
+//         lon2 = app.ConvertDegreesToRadians(longitude),
+//         vLon = Math.abs(lon1 - lon2),
+//         vLat = Math.abs(lat1 - lat2),
+//         h = app.HaverSin(vLat) + Math.cos(lat1) * Math.cos(lat2) * app.HaverSin(vLon);
+//     return Math.round(12742 * Math.asin(Math.sqrt(h)) * 1000);
+// },
