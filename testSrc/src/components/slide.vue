@@ -54,11 +54,6 @@
                         id: 3,
                         val: "深圳",
                         label: "sz"
-                    },
-                    {
-                        id: 5,
-                        val: "圳",
-                        label: "sez"
                     }
                 ],
                 show:true,
@@ -78,6 +73,8 @@
         methods: {
             selectCity(item,index){
                this.activeIndex = index;
+                let scroll = this.$refs.ul;
+                scroll.scrollTop = scroll.scrollTop + (index-1)*50
             },
             sure() {
                console.log(this.activeIndex)
@@ -88,12 +85,13 @@
                     let liTop = this.$refs["li" + item.label];
                     this.listOffsetTop.push(liTop[0].offsetTop - 41);
                 });
+                console.log(99,this.listOffsetTop)
             },
             computeActive() {
                 let scroll = this.$refs.ul;
                 scroll.addEventListener("scroll", () => {
                     this.listOffsetTop.map((item, index) => {
-                        item <= scroll.scrollTop + 100 ? (this.activeIndex = index - 2) : null;
+                        item <= scroll.scrollTop + 100 ? (this.activeIndex = index - 1) : null;
                     });
                 });
             }
@@ -108,7 +106,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        bottom: 0;
+        bottom: 50%;
         right: 0;
         display: flex;
         .picker-main {
@@ -145,9 +143,11 @@
     }
     .active {
         color: blue;
+        /*border: 1px solid red;*/
+        /*border-width: 1px 0;*/
     }
     .active2 {
-        color: red;
+        //color: red;
         opacity: 0.2 !important;
     }
 </style>
