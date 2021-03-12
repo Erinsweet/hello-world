@@ -36,3 +36,5 @@ export default {
 //     -webkit-transform:rotate(@val);
 //     -o-transform:rotate(@val);
 // }
+
+// 在这几个月的时间里，非常感谢您对我在工作和生活上的鼓励、指导和帮助，让我能够尽快地融入团队，适应新的工作环境，在工作中学习与成长。这段时间的工作生活很充实，谢谢您！
