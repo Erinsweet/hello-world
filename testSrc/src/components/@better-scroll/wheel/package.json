@@ -1,0 +1,61 @@
+{
+  "_from": "@better-scroll/wheel@^2.2.1",
+  "_id": "@better-scroll/wheel@2.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-2Gcypa6vM4p38XkJI8IpNgids7I=",
+  "_location": "/@better-scroll/wheel",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@better-scroll/wheel@^2.2.1",
+    "name": "@better-scroll/wheel",
+    "escapedName": "@better-scroll%2fwheel",
+    "scope": "@better-scroll",
+    "rawSpec": "^2.2.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.2.1"
+  },
+  "_requiredBy": [
+    "/better-scroll"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/@better-scroll/wheel/download/@better-scroll/wheel-2.2.1.tgz?cache=0&sync_timestamp=1614862053886&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40better-scroll%2Fwheel%2Fdownload%2F%40better-scroll%2Fwheel-2.2.1.tgz",
+  "_shasum": "d86732a5aeaf338a77f1790923c22936089db3b2",
+  "_spec": "@better-scroll/wheel@^2.2.1",
+  "_where": "/Users/erin/project/hello-world/testSrc/src/node_modules/better-scroll",
+  "author": {
+    "name": "jizhi",
+    "email": "theniceangel@163.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ustbhuangyi/better-scroll/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@better-scroll/core": "^2.2.1"
+  },
+  "deprecated": false,
+  "description": "a BetterScroll plugin to imitate IOS Picker",
+  "gitHead": "d41c8c92ee01aa8f3a1beb222e8d7ebcf1a91df6",
+  "homepage": "https://github.com/ustbhuangyi/better-scroll",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios"
+  ],
+  "license": "MIT",
+  "main": "dist/wheel.min.js",
+  "module": "dist/wheel.esm.js",
+  "name": "@better-scroll/wheel",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ustbhuangyi/better-scroll.git"
+  },
+  "typings": "dist/types/index.d.ts",
+  "version": "2.2.1"
+}

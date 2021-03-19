@@ -1,0 +1,62 @@
+{
+  "_from": "@better-scroll/movable@^2.2.1",
+  "_id": "@better-scroll/movable@2.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-i9Vb8+VSdfPOoLYajQ/7+rYtmo0=",
+  "_location": "/@better-scroll/movable",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@better-scroll/movable@^2.2.1",
+    "name": "@better-scroll/movable",
+    "escapedName": "@better-scroll%2fmovable",
+    "scope": "@better-scroll",
+    "rawSpec": "^2.2.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.2.1"
+  },
+  "_requiredBy": [
+    "/better-scroll"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/@better-scroll/movable/download/@better-scroll/movable-2.2.1.tgz",
+  "_shasum": "8bd55bf3e55275f3cea0b61a8d0ffbfab62d9a8d",
+  "_spec": "@better-scroll/movable@^2.2.1",
+  "_where": "/Users/erin/project/hello-world/testSrc/src/node_modules/better-scroll",
+  "author": {
+    "name": "jizhi",
+    "email": "theniceangel@163.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ustbhuangyi/better-scroll/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@better-scroll/core": "^2.2.1"
+  },
+  "deprecated": false,
+  "description": "Movable plugin for BetterScroll",
+  "gitHead": "d41c8c92ee01aa8f3a1beb222e8d7ebcf1a91df6",
+  "homepage": "https://github.com/ustbhuangyi/better-scroll",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios"
+  ],
+  "license": "MIT",
+  "main": "dist/movable.min.js",
+  "module": "dist/movable.esm.js",
+  "name": "@better-scroll/movable",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ustbhuangyi/better-scroll.git",
+    "directory": "packages/observe-dom"
+  },
+  "typings": "dist/types/index.d.ts",
+  "version": "2.2.1"
+}

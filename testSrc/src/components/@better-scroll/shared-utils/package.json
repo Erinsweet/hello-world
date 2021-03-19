@@ -1,0 +1,58 @@
+{
+  "_from": "@better-scroll/shared-utils@^2.2.1",
+  "_id": "@better-scroll/shared-utils@2.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-6wJP7uHTdZipsE/BjKDYsx809wQ=",
+  "_location": "/@better-scroll/shared-utils",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@better-scroll/shared-utils@^2.2.1",
+    "name": "@better-scroll/shared-utils",
+    "escapedName": "@better-scroll%2fshared-utils",
+    "scope": "@better-scroll",
+    "rawSpec": "^2.2.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.2.1"
+  },
+  "_requiredBy": [
+    "/@better-scroll/core"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/@better-scroll/shared-utils/download/@better-scroll/shared-utils-2.2.1.tgz?cache=0&sync_timestamp=1614862049140&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40better-scroll%2Fshared-utils%2Fdownload%2F%40better-scroll%2Fshared-utils-2.2.1.tgz",
+  "_shasum": "eb024feee1d37598a9b04fc18ca0d8b31f34f704",
+  "_spec": "@better-scroll/shared-utils@^2.2.1",
+  "_where": "/Users/erin/project/hello-world/testSrc/src/node_modules/@better-scroll/core",
+  "author": {
+    "name": "jizhi",
+    "email": "theniceangel@163.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ustbhuangyi/better-scroll/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "shared-utils for BetterScroll",
+  "gitHead": "d41c8c92ee01aa8f3a1beb222e8d7ebcf1a91df6",
+  "homepage": "https://github.com/ustbhuangyi/better-scroll",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios"
+  ],
+  "main": "dist/shared-utils.min.js",
+  "module": "dist/shared-utils.esm.js",
+  "name": "@better-scroll/shared-utils",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ustbhuangyi/better-scroll.git",
+    "directory": "packages/shared-utils"
+  },
+  "typings": "dist/types/index.d.ts",
+  "version": "2.2.1"
+}

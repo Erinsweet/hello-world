@@ -1,0 +1,64 @@
+{
+  "_from": "@better-scroll/zoom@^2.2.1",
+  "_id": "@better-scroll/zoom@2.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-KvUYwX7T51xqMVXHC2c9M6dfw5k=",
+  "_location": "/@better-scroll/zoom",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@better-scroll/zoom@^2.2.1",
+    "name": "@better-scroll/zoom",
+    "escapedName": "@better-scroll%2fzoom",
+    "scope": "@better-scroll",
+    "rawSpec": "^2.2.1",
+    "saveSpec": null,
+    "fetchSpec": "^2.2.1"
+  },
+  "_requiredBy": [
+    "/better-scroll"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/@better-scroll/zoom/download/@better-scroll/zoom-2.2.1.tgz?cache=0&sync_timestamp=1614862052869&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40better-scroll%2Fzoom%2Fdownload%2F%40better-scroll%2Fzoom-2.2.1.tgz",
+  "_shasum": "2af518c17ed3e75c6a3155c70b673d33a75fc399",
+  "_spec": "@better-scroll/zoom@^2.2.1",
+  "_where": "/Users/erin/project/hello-world/testSrc/src/node_modules/better-scroll",
+  "author": {
+    "name": "jizhi",
+    "email": "theniceangel@163.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ustbhuangyi/better-scroll/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@better-scroll/core": "^2.2.1"
+  },
+  "deprecated": false,
+  "description": "a BetterScroll plugin to enlarge or narrow",
+  "gitHead": "d41c8c92ee01aa8f3a1beb222e8d7ebcf1a91df6",
+  "homepage": "https://github.com/ustbhuangyi/better-scroll",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios",
+    "image-preview",
+    "zoom"
+  ],
+  "license": "MIT",
+  "main": "dist/zoom.min.js",
+  "module": "dist/zoom.esm.js",
+  "name": "@better-scroll/zoom",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ustbhuangyi/better-scroll.git",
+    "directory": "packages/zoom"
+  },
+  "typings": "dist/types/index.d.ts",
+  "version": "2.2.1"
+}
