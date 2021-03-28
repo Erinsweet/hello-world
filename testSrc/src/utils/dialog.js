@@ -13,6 +13,10 @@ export default {
         let id = 'dialog_' + ++i;
         options.content = `<div id="${id}">${options.content}</div>`;
         options.id = id;
+        if(options.css){
+             options.css = ('}' + options.css.replace(/[\n\r\t]+/g, '').replace(/{ +/g, '{').replace(/ +}/g, '}')).replace(new RegExp("}((?!#" + id +"[ {]).*?{)", "g"), "}#dialog #" + id + " $1").substring(1)
+        }
+        console.log(999,options)
         list[id] = 1;
         this.dialog.data.push(options);
 

@@ -1,71 +1,81 @@
 <template>
   <div id="app">
-    <div class="g-wraper">
-      <mapDrag @drag="dragMap"></mapDrag>
-    </div>
-    <div id="dialog" v-if="dialog.index > 0">
-      <div class="mask" :style="{'z-index':dialog.index}" v-if="!dialog.isToast"></div>
-      <div v-for="item in dialog.data" :class="['dialog', item.type, item.class||''].join(' ')" :style="{'z-index':item.index}">
-        <i class="icon-close"  v-if="!item.hideCloseBtn" @click="item.parent.cancelAndClose()"></i>
-        <div class="title" v-if="item.title" >
-          <span v-text="item.title"></span>
-          <i class="icon-close"  v-if="!item.hideCloseBtn" @click="item.parent.cancelAndClose()"></i>
-        </div>
-        <div class="content" :style="item.style" v-if="item.content" v-html="item.content"></div>
-        <div class="btns" v-if="item.btns">
-          <div class="btnBorder" v-for="btn in item.btns" v-if="btn.value" :class="{primary:btn.primary, disabled:btn.disabled}" v-text="btn.value" @click="btn.action(item)"></div>
-        </div>
+    <div id="myChart" ref="chart" :style="{width: '300px', height: '300px'}"></div>
+<!--    <echarts :option="options"></echarts>-->
+  <set-auth></set-auth>
+<!--    <set-switch @change="changeValue"  v-model="status"></set-switch>-->
+    <div>
+    我们提供这些选项和设置，旨在让您能够控制数据的使用和访问访问方式
+      <div>
+        <a>全部授权</a>
+        <set-switch @change="changeAll" v-model="status"></set-switch>
+      </div>
+      <div v-for="(item,index) in list">
+        <a>授权{{index}}</a>
+        <set-switch @change="val=>{changeValue(val, index)}"  v-model="list[index]"></set-switch>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
-  import mapDrag from './components/mapDrag'
+  import setAuth from './components/auth'
+  import setSwitch from './components/switch'
+  import echarts from './components/echarts'
   import loading from './components/testdialog'
   export default {
     name: 'app',
     components: {
-      mapDrag,
-      loading
+      loading,
+      setAuth,
+      setSwitch,
+      echarts
     },
     data () {
       return {
-        isLoading: true,
-        dragData: {
-          lng: null,
-          lat: null,
-          address: null,
-          nearestJunction: null,
-          nearestRoad: null,
-          nearestPOI: null
-        },
-        dialog : {
-          show : false,
-          index:0,
-          data : [],
-          app : null
-        }
+        list:[0,0,0,0,0],
+        status: false,
+        options:{}
       }
     },
     mounted(){
+      this.options ={
+        title: { text: '在Vue中使用echarts' },
+        tooltip: {},
+        xAxis: {
+          data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+          name: '销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        }]
+      };
+      this.drawLine()
     },
     methods: {
-      dragMap (data) {
-        this.dragData = {
-          lng: data.position.lng,
-          lat: data.position.lat,
-          address: data.address,
-          nearestJunction: data.nearestJunction,
-          nearestRoad: data.nearestRoad,
-          nearestPOI: data.nearestPOI
-        }
+      changeValue(val,index){
+       console.log(111,val,index,this.list);
+       let result = this.list.some(v=> !v )
+       this.status = !result
       },
+      changeAll(val){
+       for (let i=0;i<this.list.length;i++){
+         this.$set(this.list,i,val)
+       }
+        console.log(this.list)
+      },
+      drawLine(){
+        // 基于准备好的dom，初始化echarts实例
+        let chart = this.$refs.chart;
+        let myChart = this.$echarts.init(chart);
+        // 绘制图表
+        myChart.setOption(this.options);
+      }
     },
     created() {
-      this.dialog.nextTick = this.$nextTick;
-      this.$common.dialog1.dialog = this.dialog;
-
     }
   }
 </script>
@@ -76,4 +86,8 @@
   @import "assets/css/style";
   @import "assets/css/dialog";
   body{ margin: 0; }
+  .switch {
+    position: absolute;
+    right: 0;
+  }
 </style>

@@ -42,6 +42,7 @@
         color: #2d2d2b;
       }
     }
+
     >.title {
       @_fontSize: .18rem;
       font-size: @_fontSize;
@@ -70,6 +71,29 @@
         }
       }
     }
+    .tip{
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      overflow: auto;
+    }
+    &.full{
+
+    }
+    &.share{
+      background-color: #37a2da;
+      .btns{
+        .shareIcon{
+          position: absolute;
+          left: 50%;
+          top: 120%;
+          width: 100px;
+          height: 50px;
+          background: url("../../assets/img/map.png");
+          background-size: contain;
+        }
+      }
+    }
     >.content {
       padding: @vSpace;
       /*配置弹出框修改*/
@@ -77,6 +101,16 @@
       overflow: auto;
       max-width: 85vw;
       box-sizing: border-box;
+      .icon-close {
+        position: absolute;
+        top: 0;
+        right: @vSpace;
+        cursor: pointer;
+        &:after {
+          content: '关闭';
+          color: #2d2d2b;
+        }
+      }
       >div[id^="dialog_"] {
         >ul>li {
           margin-left: 5em;
