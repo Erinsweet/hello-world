@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import dialog1 from './utils/dialog'
+ import loadingFunc from './utils/loading'
 import dialog from './components/dialog1'
 //import Vue18n from 'vue-i18n' // 导入vue-i18n
 import iPicker from 'i-picker';
 Vue.prototype.$echarts = require('echarts');
 Vue.use(iPicker);
+import loading from './components/loading'
+Vue.component('Loading', loading)
 //
 // Vue.use(Vue18n)
 // 定义标识符
@@ -19,6 +22,7 @@ Vue.use(iPicker);
 // })
 Vue.config.productionTip = false
 Vue.prototype.$common= {
+  loading: loadingFunc,
   dialog : dialog,
   dialog1 : dialog1,
   lang : {},

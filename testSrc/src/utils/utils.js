@@ -3,6 +3,9 @@
  *DateTime: 2021/3/7 9:06 下午
  */
 export default {
+    setPageTitle(title) {
+        document.title = title || $lux.config.siteName
+    },
     // let resize = this.debounce(()=>{
     //
     // }, 200)
