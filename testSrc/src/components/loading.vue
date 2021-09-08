@@ -11,7 +11,8 @@
 -->
 <template>
     <div id="loading">
-    <div>122</div>
+    <div @click="test">12de2</div>
+
     </div>
 </template>
 
@@ -29,7 +30,12 @@
         },
         activated() {
         },
-        methods: {},
+        methods: {
+            test(){
+                let url= "https://blog.csdn.net/weixin_38032826/article/details/107202448"
+                window.location.href = url
+            }
+        },
         computed: {}
     }
 </script>

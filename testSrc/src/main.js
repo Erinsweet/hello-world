@@ -7,19 +7,65 @@ import dialog from './components/dialog1'
 import iPicker from 'i-picker';
 Vue.prototype.$echarts = require('echarts');
 Vue.use(iPicker);
-import loading from './components/loading'
-Vue.component('Loading', loading)
+// Vue.directive('longpress', {
+//   bind: function (el, binding, vNode) {
+//     // Make sure expression provided is a function
+//     if (typeof binding.value !== 'function') {
+//       // Fetch name of component
+//       const compName = vNode.context.name
+//       // pass warning to console
+//       let warn = `[longpress:] provided expression '${binding.expression}' is not a function, but has to be`
+//       if (compName) { warn += `Found in component '${compName}' ` }
 //
-// Vue.use(Vue18n)
-// 定义标识符
-// const i18n = new Vue18n({
-//   locale: 'zh-CN',  //默认显示的语言
-//   // this.$i18n.locale // 通过切换locale的值来实现语言切换
-//   messages: {
-//     'zh-CN': require('./assets/lang/zh-cn'), // 中文语言包
-//     'en-US': require('./assets/lang/en-us') // 英文语言包
+//       console.warn(warn)
+//     }
+//
+//     // Define variable
+//     let pressTimer = null
+//
+//     // Define funtion handlers
+//     // Create timeout ( run function after 1s )
+//     let start = (e) => {
+//
+//       if (e.type === 'click' && e.button !== 0) {
+//         return;
+//       }
+//
+//       if (pressTimer === null) {
+//         pressTimer = setTimeout(() => {
+//           // Run function
+//           handler()
+//         }, 1000)
+//       }
+//     }
+//
+//     // Cancel Timeout
+//     let cancel = (e) => {
+//       // Check if timer has a value or not
+//       if (pressTimer !== null) {
+//         clearTimeout(pressTimer)
+//         pressTimer = null
+//       }
+//     }
+//     // Run Function
+//     const handler = (e) => {
+//       binding.value(e)
+//     }
+//
+//     // Add Event listeners
+//     el.addEventListener("mousedown", start);
+//     el.addEventListener("touchstart", start);
+//     // Cancel timeouts if this events happen
+//     el.addEventListener("click", cancel);
+//     el.addEventListener("mouseout", cancel);
+//     el.addEventListener("touchend", cancel);
+//     el.addEventListener("touchcancel", cancel);
 //   }
 // })
+import loading from './components/loading'
+Vue.component('Loading', loading)
+import "./utils/derective"
+
 Vue.config.productionTip = false
 Vue.prototype.$common= {
   loading: loadingFunc,
@@ -41,7 +87,10 @@ Vue.prototype.$lang = (name)=>{
 // Vue.prototype.$setLang = Vue.prototype.$common.setLang;
 //Vue.prototype.$common.setLang((navigator.language||navigator.userLanguage).toLowerCase());
 Vue.prototype.$common.setLang('en-us');
+import Axios from 'axios'
+Axios.defaults.timeout = 5000 // 请求超时
 
+Vue.prototype.$axios = Axios;
 
 new Vue({
   // i18n,
